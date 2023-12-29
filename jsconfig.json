@@ -2,6 +2,7 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"]
+      // 絕對路徑， @ => 從./src/開始找資料
     }
   },
   "exclude": ["node_modules", "dist"]
