@@ -2,7 +2,9 @@
 import MyButton from '@/components/customButton/MyButton.vue';
 
 export default{
-    components 
+    components : {
+        MyButton
+    },
     data(){
         return{
             numA:0,
@@ -11,7 +13,22 @@ export default{
         }
     },
     methods: {
-       
+       add(){
+        if(this.numA.toString().trim()===''||this.numB.toString().trim()==='') return;
+        this.result=this.numA + this.numB;
+       },
+       minus(){
+        if(this.numA.toString().trim()===''||this.numB.toString().trim()==='') return;
+        this.result=this.numA - this.numB;
+       },
+       mult(){
+        if(this.numA.toString().trim()===''||this.numB.toString().trim()==='') return;
+        this.result=this.numA * this.numB;
+       },
+       divi(){
+        if(this.numA.toString().trim()===''||this.numB.toString().trim()==='') return;
+        this.result=this.numA / this.numB;
+       },
     },
 }
 </script>
@@ -20,15 +37,29 @@ export default{
     <!-- v-else-if -->
     <!-- v-else -->
 
+    <!-- v-show -->
+
+    <!-- v-for 記得要補:key -->
+
+
 <!-- v-model -->
 <div>計算機</div>
 <div><label>數字A: <input v-model="numA" type="number"></label></div>
 <div><label>數字B: <input v-model="numB" type="number"></label></div>
 <div class="btns">
-    <button type="button" class="btn">+</button>
+    <MyButton @click="add()">+</MyButton>
+    <MyButton @click="minus()">-</MyButton>
+    <MyButton @click="mult()">*</MyButton>
+    <MyButton @click="divi()">/</MyButton>
+
+    <!-- <MyButton>-</MyButton>
+    <MyButton>*</MyButton>
+    <MyButton>/</MyButton> -->
+
+    <!-- <button type="button" class="btn">+</button>
     <button type="button" class="btn">-</button>
     <button type="button" class="btn">*</button>
-    <button type="button" class="btn">/</button>
+    <button type="button" class="btn">/</button> -->
 </div>
 <div class="output text-main-deep">
     計算結果:{{ result }}
@@ -43,9 +74,7 @@ export default{
 .btns {
     @apply flex gap-[30px];
 
-    .btn {
-    @apply border-[black] border-[3px] py-[10px] hover:text-[blue] bg-main-deep;
-    }
+   
 }
 .box {
     @apply w-[300px] h-[300px] bg-[wheat] sm:w-[100px] sm:h-[100px];
