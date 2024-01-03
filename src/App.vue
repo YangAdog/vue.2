@@ -12,15 +12,15 @@ export default {
 
 <template>
   <!-- 觀察你的設計稿 把共用的部分放在此頁面 -->
-  <header>
-   
+  <header class="mb-[30px] text-[red]">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/calc">calc</RouterLink>
+        <RouterLink to="/todolist">ToDoList</RouterLink>
   </header>
   <main>
-    <div>count:{{ count }}</div>
-    <button @click="count++">++</button>
+    <div class="mb-[10px]">count:{{ count }}</div>
+    <button @click="count++" class="mb-[30px]">++</button>
   </main>
 
   <RouterView />
