@@ -17,6 +17,7 @@ export default {
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/calc">calc</RouterLink>
         <RouterLink to="/todolist">ToDoList</RouterLink>
+        <RouterLink to="/pickupload">PickUpload</RouterLink>
   </header>
   <main>
     <div class="mb-[10px]">count:{{ count }}</div>

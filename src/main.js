@@ -13,6 +13,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(faShoppingCart, faInstagram, faFacebookSquare, fab, fas )
 
+
 const app = createApp(App)
 app.component('font-awesome-icon', FontAwesomeIcon) //使用kebab-case
 
