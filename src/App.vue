@@ -1,10 +1,17 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router';
 // import HelloWorld from './components/HelloWorld.vue'
+import background from '@/assets/Image/weatherPic.gif';
+
 export default {
+  // 元件宣告
+  components: {
+    RouterView
+  },
   data() {
     return {
       count:0,
+      background,
     };
   },
 }
@@ -18,16 +25,18 @@ export default {
         <RouterLink to="/calc">calc</RouterLink>
         <RouterLink to="/todolist">ToDoList</RouterLink>
         <RouterLink to="/pickupload">PickUpload</RouterLink>
+        <RouterLink to="/weather">Weather</RouterLink>
   </header>
-  <main>
+  <main :style="{backgroundImage:`url(${background})`}">
+    <RouterView/>
     <div class="mb-[10px]">count:{{ count }}</div>
     <button @click="count++" class="mb-[30px]">++</button>
   </main>
 
-  <RouterView />
+  <!-- <RouterView /> -->
 </template>
-``
-<!-- <style scoped>
+
+<style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -89,4 +98,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-</style> -->
+</style> 
