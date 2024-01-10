@@ -1,7 +1,7 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterView } from 'vue-router';
 // import HelloWorld from './components/HelloWorld.vue'
-import background from '@/assets/Image/weatherPic.gif';
+import background from '@/assets/Image/111.png';
 
 export default {
   // 元件宣告
@@ -10,7 +10,7 @@ export default {
   },
   data() {
     return {
-      count:0,
+      count: 0,
       background,
     };
   },
@@ -20,26 +20,36 @@ export default {
 <template>
   <!-- 觀察你的設計稿 把共用的部分放在此頁面 -->
   <header class="mb-[30px] text-[red]">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/calc">calc</RouterLink>
-        <RouterLink to="/todolist">ToDoList</RouterLink>
-        <RouterLink to="/pickupload">PickUpload</RouterLink>
-        <RouterLink to="/weather">Weather</RouterLink>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/about">About</RouterLink>
+    <RouterLink to="/calc">calc</RouterLink>
+    <RouterLink to="/todolist">ToDoList</RouterLink>
+    <RouterLink to="/pickupload">PickUpload</RouterLink>
+    <RouterLink to="/weather">Weather</RouterLink>
   </header>
-  <main :style="{backgroundImage:`url(${background})`}">
-    <RouterView/>
+
+  <main :style="{ backgroundImage: `url(${background})` }">
+    <!-- <RouterView/> -->
     <div class="mb-[10px]">count:{{ count }}</div>
     <button @click="count++" class="mb-[30px]">++</button>
+    <RouterView />
   </main>
+  <footer>
+  </footer>
 
-  <!-- <RouterView /> -->
 </template>
 
+<!-- scoped style只影響這支vue -->
 <style scoped>
 header {
+  width: 100%;
   line-height: 1.5;
+  min-height: 50px;
   max-height: 100vh;
+  border-radius: 5px;
+  background-color: black;
+  color: rgb(236, 230, 219);
+  margin-bottom: 10px;
 }
 
 .logo {
@@ -70,6 +80,13 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+main {
+  width: 100%;
+  padding: 0px 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgb(90, 106, 158);
 }
 
 @media (min-width: 1024px) {

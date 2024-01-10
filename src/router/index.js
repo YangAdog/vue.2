@@ -5,6 +5,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      // 自訂義路由
       path: '/',
       // 自訂義頁面名稱
       name: 'home',
@@ -33,7 +34,12 @@ const router = createRouter({
       path: '/pickupload',
       name: 'pickupload',
       component: () => import('../views/PickUpload.vue')
-    }
+    },
+    {
+      path: '/weather',
+      name: 'weather',
+      component: () => import('../views/WeatherApi.vue')
+    },
   ]
 })
 

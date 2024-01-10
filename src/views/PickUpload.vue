@@ -10,7 +10,7 @@ export default {
     methods: {
         uploadPic(event) {
             this.picFile = event.target.files[0];
-            console.log(this.picFile);
+            // console.log(this.picFile);
             if (this.picFile) {
                 const reader = new FileReader();
                 reader.readAsDataURL(this.picFile);
@@ -28,15 +28,15 @@ export default {
             }
         },
         submit() {
-this.imageFile
+            this.imageFile
         }
     },
 };
 </script>
-<template lang="">
+<template>
 <input type="file" accept=".jpg,.png,.jepg,.gif" @change="uploadPic">
 <img :src="fileSrc" alt="">
 <button class="w-[80px] h-[30px] border border-red-500" type="button" @click="submit()">上傳圖片</button>
 
 </template>
-<style lang="scss"></style>
+<style></style>

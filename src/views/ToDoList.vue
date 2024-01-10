@@ -66,6 +66,7 @@ export default {
                     // 拿去當下時間
                     let date = new Date().toISOString().split('T');
                     const { addText, toDoListArr, endTime } = this;
+                    // 檢測是否為空字串
                     if (!addText || !endTime) return Swal.fire({
                         title: "不要交白卷!",
                         icon: "error",
@@ -145,6 +146,12 @@ export default {
             // 舊的事項放入newToDo
             item.toDo = item.newToDo;
         },
+
+        topEditst(item) {
+            item.editIng = !item.editIng;
+            item.toDo = item.newToDo;
+            item.newToDo = '';
+        },
     }
 };
 </script>
@@ -182,10 +189,10 @@ export default {
                     <div class="w-full grid grid-cols-5 items-center">
                         <div>
                             <!-- 執行結束，勾選起來後 要把刪除按鈕拿掉 -->
-                            <input v-model="item.checkThis" class="ml-3" type="checkbox">
+                            <input v-model="item.checkThis" class="ml-3" type="checkbox" @change="">
                         </div>
-                        <span class="grid grid-cols-subgrid">{{ item.toDo }}</span>
-                        <span>{{ item.endTime }}</span>
+                        <span v-if="!item.editIng" class="grid grid-cols-subgrid" @click="starEdit(item)">{{ item.toDo }}</span>
+                        <span>{{ item.endTime ?? '' }}</span>
                         <span>{{ item.logTime }}</span>
                         <button class="bg-gradient-to-b from-red-500  to-orange-500 p-3 rounded-xl m-3 text-white"
                             type="button" @click="deleteList(item.id)"><font-awesome-icon
@@ -209,4 +216,4 @@ export default {
 
 
 
-<style scoped="scss"></style>
+<style lang="scss" scoped></style>
