@@ -28,7 +28,7 @@ export default {
     <RouterLink to="/weather">Weather</RouterLink>
   </header>
 
-  <main :style="{ backgroundImage: `url(${background})` }">
+  <main :style="{backgroundImage: `url(${background})`}">
     <!-- <RouterView/> -->
     <div class="mb-[10px]">count:{{ count }}</div>
     <button @click="count++" class="mb-[30px]">++</button>
@@ -86,7 +86,7 @@ main {
   padding: 0px 20px;
   background-size: cover;
   background-repeat: no-repeat;
-  color: rgb(90, 106, 158);
+  color: whitesmoke;
 }
 
 @media (min-width: 1024px) {

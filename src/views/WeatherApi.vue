@@ -33,6 +33,12 @@ export default {
                     place: '離島',
                 },
             ],
+            from: [
+                {
+                    weatherText: '',
+                    weatherCheck: false,
+                }
+            ],
             checkPlace: 'all',
 
             north: ['新北市', '新竹縣', '新竹市', '臺北市', '基隆市', '桃園市', '宜蘭縣'],
@@ -67,6 +73,22 @@ export default {
             });
         }
     },
+    methods: {
+
+    },
+    watch: {
+        from: {
+            handler() {
+                if (this.from.weatherText === '123') {
+                    this.from.weatherCheck = true;
+                } else if (this.from.weatherText === '') {
+                    this.from.weatherCheck = false;
+                }
+            },
+            deep: true,
+            immediate: true,
+        },
+    }
 }
 </script>
 
@@ -76,6 +98,8 @@ export default {
             :class="{ 'bg-warmGray-400 text-warmGray-900': checkPlace == item.id }" @click="checkPlace = item.id">
             {{ item.place }}
         </weather-slot>
+        <input v-model="from[0].weatherText" type="text">
+        <input v-model="from[0].weatherCheck" type="checkbox">{{ from[0].weatherCheck }}
     </div>
     <div class="pt-3 w-full flex flex-wrap gap-3 justify-center">
         <!-- 利用v-for帶入weatherData內的信，並且使用父傳子的方式，將單一值傳進components -->
@@ -83,4 +107,4 @@ export default {
     </div>
 </template>
 
-<style lang="scss" sc></style>
+<style lang="scss" scoped></style>
